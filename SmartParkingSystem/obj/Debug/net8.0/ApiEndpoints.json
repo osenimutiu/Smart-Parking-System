@@ -1,0 +1,460 @@
+[
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.AccountController",
+    "Method": "AddRole",
+    "RelativePath": "api/Account/AddRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.AddRoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.AccountController",
+    "Method": "EmailConfirmation",
+    "RelativePath": "api/Account/EmailConfirmation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.AccountController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/Account/ForgotPassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "forgotPasswordDto",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.ForgotPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.AccountController",
+    "Method": "GetAllUser",
+    "RelativePath": "api/Account/GetAllUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.AccountController",
+    "Method": "GetRoles",
+    "RelativePath": "api/Account/GetRoles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.AccountController",
+    "Method": "Login",
+    "RelativePath": "api/Account/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userForAuthentication",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.UserForAuthenticationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.AccountController",
+    "Method": "RegisterUser",
+    "RelativePath": "api/Account/Registration",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userForRegistration",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.UserForRegistrationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.AccountController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Account/ResetPassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resetPasswordDto",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.ResetPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.BookingController",
+    "Method": "Post",
+    "RelativePath": "api/Booking/AddBooking",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "BookingDto",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.BookingDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.BookingController",
+    "Method": "Delete",
+    "RelativePath": "api/Booking/DeteteBooking/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.BookingController",
+    "Method": "Get",
+    "RelativePath": "api/Booking/GetAllBookings",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.BookingController",
+    "Method": "Get",
+    "RelativePath": "api/Booking/GetBookingById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.BookingController",
+    "Method": "Put",
+    "RelativePath": "api/Booking/UpdateBooking/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "BookingDto",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.BookingDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.DriverController",
+    "Method": "Delete",
+    "RelativePath": "api/Driver/DeteteDriver/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.DriverController",
+    "Method": "Get",
+    "RelativePath": "api/Driver/GetAllDrivers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.DriverController",
+    "Method": "Get",
+    "RelativePath": "api/Driver/GetDriverById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.DriverController",
+    "Method": "Put",
+    "RelativePath": "api/Driver/UpdateDriver/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "DriverDto",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.DriverDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.ManageController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/Manage/ChangePassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.ChangePasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.ParkingOwnerController",
+    "Method": "Delete",
+    "RelativePath": "api/ParkingOwner/DeteteParkingOwner/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.ParkingOwnerController",
+    "Method": "Get",
+    "RelativePath": "api/ParkingOwner/GetAllParkingOwners",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.ParkingOwnerController",
+    "Method": "Get",
+    "RelativePath": "api/ParkingOwner/GetParkingOwnerById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.ParkingOwnerController",
+    "Method": "Put",
+    "RelativePath": "api/ParkingOwner/UpdateParkingOwner/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "ParkingOwnerDto",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.ParkingOwnerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.ParkingSpaceController",
+    "Method": "Post",
+    "RelativePath": "api/ParkingSpace/AddParkingSpace",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ParkingSpaceDto",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.ParkingSpaceDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.ParkingSpaceController",
+    "Method": "Delete",
+    "RelativePath": "api/ParkingSpace/DeteteParkingSpace/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.ParkingSpaceController",
+    "Method": "Get",
+    "RelativePath": "api/ParkingSpace/GetAllParkingSpaces",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.ParkingSpaceController",
+    "Method": "Get",
+    "RelativePath": "api/ParkingSpace/GetParkingSpaceById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.ParkingSpaceController",
+    "Method": "Put",
+    "RelativePath": "api/ParkingSpace/UpdateParkingSpace/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "ParkingSpaceDto",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.ParkingSpaceDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.PaymentController",
+    "Method": "Post",
+    "RelativePath": "api/Payment/addPayment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bookingDto",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.BookingDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SmartParkingSystem.WeatherForecast, SmartParkingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
