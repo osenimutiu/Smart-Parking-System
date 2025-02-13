@@ -1,6 +1,7 @@
 ﻿using SmartParkingSystem.Entities.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SmartParkingSystem.Entities.DataTransferObjects;
 
 namespace SmartParkingSystem.Repository
 {

@@ -422,19 +422,55 @@
   },
   {
     "ContainingType": "SmartParkingSystem.Controllers.PaymentController",
-    "Method": "Post",
-    "RelativePath": "api/Payment/addPayment",
+    "Method": "InitializeTransaction",
+    "RelativePath": "api/Payment/initialize",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "bookingDto",
-        "Type": "SmartParkingSystem.Entities.DataTransferObjects.BookingDto",
+        "Name": "request",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.PaystackInitateRequest",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.InitiateResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.PaymentController",
+    "Method": "VerifyTransaction",
+    "RelativePath": "api/Payment/verify",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reference",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.PaystackVerifyResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "SmartParkingSystem.Controllers.WeatherForecastController",

@@ -5,6 +5,7 @@ namespace SmartParkingSystem.Contracts
 {
     public interface IPaymentRepository
     {
-        Task<Payment> ProcessPayment(BookingDto bookingDto);
+        Task<InitiateResponse> InitializePayment(PaystackInitateRequest request);
+        Task<PaystackVerifyResponse> VerifyPayment(string reference);
     }
 }

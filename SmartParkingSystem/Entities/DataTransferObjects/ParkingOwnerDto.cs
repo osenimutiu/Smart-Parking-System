@@ -37,4 +37,14 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
         public DateTime EndTime { get; set; }
         public bool IsConfirmed { get; set; } = false;
     }
+    public class PaymentRequest
+    {
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public decimal Amount { get; set; }
+
+        public string Reference { get; set; }
+    }
 }

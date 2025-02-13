@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace SmartParkingSystem.Entities.Models
 {
@@ -78,16 +79,6 @@ namespace SmartParkingSystem.Entities.Models
 
         public bool IsConfirmed { get; set; } = false;
     }
-    public class Payment
-    {
-        [Key]
-        public int PaymentId { get; set; }
-        public int BookingId { get; set; }
-        public decimal Amount { get; set; }
-        public string Status { get; set; }
-        public DateTime PaymentDate { get; set; }
-    }
-
     public class Notification
     {
         public string Email { get; set; }
