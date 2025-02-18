@@ -22,15 +22,15 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddIdentity<User, IdentityRole>(opt =>
 {
-    opt.Password.RequiredLength = 5;
+    opt.Password.RequiredLength = 10;
     opt.Password.RequireDigit = false;
     opt.Password.RequireNonAlphanumeric = false;
-    opt.Password.RequireUppercase = false;
+    opt.Password.RequireUppercase = true;
     opt.Password.RequiredUniqueChars = 1;
-    opt.Password.RequireLowercase = false;
+    opt.Password.RequireLowercase = true;
     opt.User.RequireUniqueEmail = false;
     opt.Lockout.MaxFailedAccessAttempts = 3;
-    opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(5);
+    opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(30);
     opt.Lockout.AllowedForNewUsers = false;
 }).AddEntityFrameworkStores<RepositoryContext>()
     .AddDefaultTokenProviders();

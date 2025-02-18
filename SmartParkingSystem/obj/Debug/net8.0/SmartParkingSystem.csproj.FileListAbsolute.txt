@@ -193,3 +193,4 @@ E:\repos\817Project\SmartParkingSystem\SmartParkingSystem\bin\Debug\net8.0\runti
 E:\repos\817Project\SmartParkingSystem\SmartParkingSystem\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 E:\repos\817Project\SmartParkingSystem\SmartParkingSystem\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 E:\repos\817Project\SmartParkingSystem\SmartParkingSystem\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+E:\repos\817Project\SmartParkingSystem\SmartParkingSystem\obj\Debug\net8.0\SmartParkingSystem.sourcelink.json

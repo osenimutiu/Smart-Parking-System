@@ -120,11 +120,8 @@ namespace SmartParkingSystem.Controllers
             var user = await _userManager.FindByNameAsync(userForAuthentication.UserName);
             if (user == null)
                 return BadRequest("Invalid Request");
-
             //if (!await _userManager.IsEmailConfirmedAsync(user))
             //    return Unauthorized(new AuthResponseDto { ErrorMessage = "Email is not confirmed" });
-
-
             //var gdgd = await _signInManager.CheckPasswordSignInAsync(user, userForAuthentication.Password,true);
             //if (!await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
             //    return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
