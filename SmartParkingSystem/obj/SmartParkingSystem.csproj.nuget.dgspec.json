@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anichebech\\Source\\Repos\\Smart-Parking-System\\SmartParkingSystem\\SmartParkingSystem.csproj": {}
+    "C:\\Users\\anichebech\\source\\repos\\Smart-Parking-System\\SmartParkingSystem\\SmartParkingSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anichebech\\Source\\Repos\\Smart-Parking-System\\SmartParkingSystem\\SmartParkingSystem.csproj": {
+    "C:\\Users\\anichebech\\source\\repos\\Smart-Parking-System\\SmartParkingSystem\\SmartParkingSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anichebech\\Source\\Repos\\Smart-Parking-System\\SmartParkingSystem\\SmartParkingSystem.csproj",
+        "projectUniqueName": "C:\\Users\\anichebech\\source\\repos\\Smart-Parking-System\\SmartParkingSystem\\SmartParkingSystem.csproj",
         "projectName": "SmartParkingSystem",
-        "projectPath": "C:\\Users\\anichebech\\Source\\Repos\\Smart-Parking-System\\SmartParkingSystem\\SmartParkingSystem.csproj",
+        "projectPath": "C:\\Users\\anichebech\\source\\repos\\Smart-Parking-System\\SmartParkingSystem\\SmartParkingSystem.csproj",
         "packagesPath": "C:\\Users\\anichebech\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anichebech\\Source\\Repos\\Smart-Parking-System\\SmartParkingSystem\\obj\\",
+        "outputPath": "C:\\Users\\anichebech\\source\\repos\\Smart-Parking-System\\SmartParkingSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
