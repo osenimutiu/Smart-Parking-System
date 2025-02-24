@@ -10,7 +10,7 @@ namespace SmartParkingSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class BookingController : ControllerBase
     {
         private readonly IMapper _mapper;

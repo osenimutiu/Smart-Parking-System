@@ -243,6 +243,16 @@
   },
   {
     "ContainingType": "SmartParkingSystem.Controllers.DriverController",
+    "Method": "GetDriversBasedOnUser",
+    "RelativePath": "api/Driver/getDriversBasedOnUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.DriverController",
     "Method": "Put",
     "RelativePath": "api/Driver/UpdateDriver/{id}",
     "HttpMethod": "PUT",

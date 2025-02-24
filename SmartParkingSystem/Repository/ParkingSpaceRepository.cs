@@ -26,8 +26,10 @@ namespace SmartParkingSystem.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<ParkingSpace>> GetListParkingSpaces()
+        public async Task<List<ParkingSpace>> GetListParkingSpaces(string role, string email)
         {
+            if (role.ToLower() == "owner")
+                return await _context.ParkingSpaces.Where(x=>x.Owner.Email == email).Include(y => y.Owner).ToListAsync();
             return await _context.ParkingSpaces.Include(x => x.Owner).ToListAsync();
         }
 

@@ -355,6 +355,18 @@
         }
       }
     },
+    "/api/Driver/getDriversBasedOnUsers": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Driver/GetDriverById/{id}": {
       "get": {
         "tags": [

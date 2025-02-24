@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using SmartParkingSystem.Contracts;
 using SmartParkingSystem.Entities.DataTransferObjects;
 using SmartParkingSystem.Entities.Models;
+using SmartParkingSystem.JwtFeatures;
 
 namespace SmartParkingSystem.Controllers
 {
@@ -15,11 +16,12 @@ namespace SmartParkingSystem.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IDriverRepository _DriverRepository;
-
-        public DriverController(IMapper mapper, IDriverRepository DriverRepository)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public DriverController(IMapper mapper, IDriverRepository DriverRepository, IHttpContextAccessor httpContextAccessor)
         {
             _mapper = mapper;
             _DriverRepository = DriverRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet("GetAllDrivers")]
@@ -38,7 +40,34 @@ namespace SmartParkingSystem.Controllers
             }
 
         }
+        [HttpGet("getDriversBasedOnUsers")]
+        public async Task<IActionResult> GetDriversBasedOnUser()
+        {
+            try
+            {
+                //string userName = User.Identity.Name;
+                var authResp = new JwtHttpClient(_httpContextAccessor);
+                var authModel = authResp.SetJwtTokenResponse();
+                bool isRole = User.IsInRole("Administrator");
+                var role = String.Empty;
+                List<Driver> listDrivers = null;
+                IEnumerable<DriverDto> listDriversDto = null;
+                if (authModel.Role == "Driver")
+                {
+                    listDrivers = await _DriverRepository.GetDriversBasedOnUser(authModel.Role, authModel.Email);
+                    listDriversDto = _mapper.Map<IEnumerable<DriverDto>>(listDrivers);
+                }
+                else if (authModel.Role == "Administrator")
+                    listDrivers = await _DriverRepository.GetDriversBasedOnUser(authModel.Role, authModel.Email);
+                    listDriversDto = _mapper.Map<IEnumerable<DriverDto>>(listDrivers);
+                return Ok(listDriversDto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
 
+        }
         //[HttpGet("{id}")]
         [HttpGet("GetDriverById/{id}")]
         public async Task<IActionResult> Get(int id)

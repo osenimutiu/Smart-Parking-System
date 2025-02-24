@@ -31,6 +31,13 @@ namespace SmartParkingSystem.Repository
             return await _context.Drivers.ToListAsync();
         }
 
+        public async Task<List<Driver>> GetDriversBasedOnUser(string role, string email)
+        {
+            if (role.ToLower() == "driver")
+                return await _context.Drivers.Where(x => x.Email == email).ToListAsync();
+            return await _context.Drivers.ToListAsync();
+        }
+
         public async Task<Driver> GetDriver(int id)
         {
             return await _context.Drivers.FindAsync(id);

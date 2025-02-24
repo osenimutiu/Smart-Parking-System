@@ -111,7 +111,11 @@ namespace SmartParkingSystem.Controllers
                 await _userManager.AddToRoleAsync(tempUser, role);
             }
 
-            return StatusCode(201);
+            return Ok(new
+            {
+                Status = true,
+                Message = "Registered Successfully"
+            });
         }
 
         [HttpPost("Login")]
@@ -126,10 +130,10 @@ namespace SmartParkingSystem.Controllers
             //if (!await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
             //    return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
             var result = await _signInManager.PasswordSignInAsync(user, userForAuthentication.Password, true,true);
-            var roles = await _userManager.GetRolesAsync(user);
+            var role = await _userManager.GetRolesAsync(user);
             if (result.Succeeded)
             {
-                var token = GenerateJwtToken(user, roles);
+                var token = GenerateJwtToken(user, role);
                 return Ok(new
                 {
                     token,
@@ -137,7 +141,7 @@ namespace SmartParkingSystem.Controllers
                     user.FirstName,
                     user.LastName,
                     user.Email,
-                    roles
+                    role
                 });
             }
             else
@@ -281,12 +285,14 @@ namespace SmartParkingSystem.Controllers
             var claims = new List<Claim>
     {
         new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+        new Claim(JwtRegisteredClaimNames.Email, user.Email),
         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         new Claim(ClaimTypes.NameIdentifier, user.Id),
         //Mutiu Added
         new Claim("firstName", user.FirstName),
         new Claim("lastName", user.LastName),
-        new Claim("email", user.Email)
+        new Claim("email", user.Email),
+        new Claim("username", user.UserName)
 
     };
             foreach (var role in roles)

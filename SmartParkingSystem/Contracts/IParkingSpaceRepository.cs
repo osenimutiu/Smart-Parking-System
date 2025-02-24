@@ -4,7 +4,7 @@ namespace SmartParkingSystem.Contracts
 {
     public interface IParkingSpaceRepository
     {
-        Task<List<ParkingSpace>> GetListParkingSpaces();
+        Task<List<ParkingSpace>> GetListParkingSpaces(string role, string email);
         Task<ParkingSpace> GetParkingSpace(int id);
         Task DeleteParkingSpace(ParkingSpace ParkingSpace);
         Task<ParkingSpace> AddParkingSpace(ParkingSpace ParkingSpace);

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using SmartParkingSystem.Contracts;
 using SmartParkingSystem.Entities.DataTransferObjects;
 using SmartParkingSystem.Entities.Models;
+using SmartParkingSystem.JwtFeatures;
 
 namespace SmartParkingSystem.Controllers
 {
@@ -15,11 +16,12 @@ namespace SmartParkingSystem.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IParkingSpaceRepository _ParkingSpaceRepository;
-
-        public ParkingSpaceController(IMapper mapper, IParkingSpaceRepository ParkingSpaceRepository)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public ParkingSpaceController(IMapper mapper, IParkingSpaceRepository ParkingSpaceRepository, IHttpContextAccessor httpContextAccessor)
         {
             _mapper = mapper;
             _ParkingSpaceRepository = ParkingSpaceRepository;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet("GetAllParkingSpaces")]
@@ -27,15 +29,24 @@ namespace SmartParkingSystem.Controllers
         {
             try
             {
-                var listParkingSpaces = await _ParkingSpaceRepository.GetListParkingSpaces();
-
-                var listParkingSpacesDto = _mapper.Map<IEnumerable<ParkingSpaceDto>>(listParkingSpaces);
-
+                string username = User.Identity.Name;
+                string role = String.Empty;
+                List<ParkingSpace> listParkingSpaces = null;
+                IEnumerable<ParkingSpaceDto> listParkingSpacesDto = null; 
+                var authResp = new JwtHttpClient(_httpContextAccessor);
+                var authModel = authResp.SetJwtTokenResponse();
+                if (authModel.Role == "Owner")
+                {
+                    listParkingSpaces = await _ParkingSpaceRepository.GetListParkingSpaces(authModel.Role, authModel.Email);
+                    listParkingSpacesDto = _mapper.Map<IEnumerable<ParkingSpaceDto>>(listParkingSpaces);
+                }
+                else 
+                    listParkingSpaces = await _ParkingSpaceRepository.GetListParkingSpaces(authModel.Role, authModel.Email);
+                    listParkingSpacesDto = _mapper.Map<IEnumerable<ParkingSpaceDto>>(listParkingSpaces);
                 return Ok(listParkingSpaces);
             }
             catch (Exception ex)
             {
-
                 return BadRequest(ex.Message);
             }
 
