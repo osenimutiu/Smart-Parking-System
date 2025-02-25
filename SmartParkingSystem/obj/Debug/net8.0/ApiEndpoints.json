@@ -180,6 +180,22 @@
   },
   {
     "ContainingType": "SmartParkingSystem.Controllers.BookingController",
+    "Method": "getDetailsForBooking",
+    "RelativePath": "api/Booking/getDetailsForBooking/{spaceId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "spaceId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.BookingController",
     "Method": "Put",
     "RelativePath": "api/Booking/UpdateBooking/{id}",
     "HttpMethod": "PUT",

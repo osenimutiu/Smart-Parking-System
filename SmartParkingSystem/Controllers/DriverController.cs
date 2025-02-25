@@ -45,10 +45,8 @@ namespace SmartParkingSystem.Controllers
         {
             try
             {
-                //string userName = User.Identity.Name;
                 var authResp = new JwtHttpClient(_httpContextAccessor);
                 var authModel = authResp.SetJwtTokenResponse();
-                bool isRole = User.IsInRole("Administrator");
                 var role = String.Empty;
                 List<Driver> listDrivers = null;
                 IEnumerable<DriverDto> listDriversDto = null;

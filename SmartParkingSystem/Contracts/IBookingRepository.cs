@@ -1,4 +1,5 @@
-﻿using SmartParkingSystem.Entities.Models;
+﻿using SmartParkingSystem.Entities.DataTransferObjects;
+using SmartParkingSystem.Entities.Models;
 
 namespace SmartParkingSystem.Contracts
 {
@@ -6,6 +7,7 @@ namespace SmartParkingSystem.Contracts
     {
         Task<List<Booking>> GetListBookings();
         Task<Booking> GetBooking(int id);
+        Task<BookingModel> GetDetailsForBooking(int spaceId, string emailAddress);
         Task DeleteBooking(Booking Booking);
         Task<Booking> AddBooking(Booking Booking);
         Task UpdateBooking(Booking Booking);

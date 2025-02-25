@@ -343,6 +343,29 @@
         }
       }
     },
+    "/api/Booking/getDetailsForBooking/{spaceId}": {
+      "get": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "spaceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Driver/GetAllDrivers": {
       "get": {
         "tags": [
