@@ -60,7 +60,7 @@ namespace SmartParkingSystem.Controllers
                 FirstName = userForRegistration.FirstName,
                 LastName = userForRegistration.LastName,
                 PhoneNumber = userForRegistration.PhoneNumber,
-                EmailConfirmed = true,
+                //EmailConfirmed = true,
 
             };
             
@@ -72,17 +72,17 @@ namespace SmartParkingSystem.Controllers
                 return BadRequest(new RegistrationResponseDto { Errors = errors });
             }
 
-            //var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            //var param = new Dictionary<string, string?>
-            //{
-            //    {"token", token },
-            //    {"email", user.Email }
-            //};
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var param = new Dictionary<string, string?>
+            {
+                {"token", token },
+                {"email", user.Email }
+            };
 
-            //var callback = QueryHelpers.AddQueryString(userForRegistration.ClientURI, param);
+            var callback = QueryHelpers.AddQueryString(userForRegistration.ClientURI, param);
 
-            //var message = new Message(new string[] { user.Email }, "Email Confirmation token", callback, null);
-            //await _emailSender.SendEmailAsync(message);
+            var message = new Message(new string[] { user.Email }, "Email Confirmation token", callback, null);
+            await _emailSender.SendEmailAsync(message);
             var tempUser = await _userManager.FindByEmailAsync(userForRegistration.Email);
             foreach (var role in userForRegistration.Roles)
             {
@@ -124,11 +124,13 @@ namespace SmartParkingSystem.Controllers
             var user = await _userManager.FindByNameAsync(userForAuthentication.UserName);
             if (user == null)
                 return BadRequest("Invalid Request");
-            //if (!await _userManager.IsEmailConfirmedAsync(user))
-            //    return Unauthorized(new AuthResponseDto { ErrorMessage = "Email is not confirmed" });
-            //var gdgd = await _signInManager.CheckPasswordSignInAsync(user, userForAuthentication.Password,true);
-            //if (!await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
-            //    return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
+            //
+            if (!await _userManager.IsEmailConfirmedAsync(user))
+                return Unauthorized(new AuthResponseDto { ErrorMessage = "Email is not confirmed" });
+            var gdgd = await _signInManager.CheckPasswordSignInAsync(user, userForAuthentication.Password, true);
+            if (!await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
+                return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
+            //
             var result = await _signInManager.PasswordSignInAsync(user, userForAuthentication.Password, true,true);
             var role = await _userManager.GetRolesAsync(user);
             if (result.Succeeded)
@@ -187,15 +189,12 @@ namespace SmartParkingSystem.Controllers
             var user = await _userManager.FindByEmailAsync(resetPasswordDto.Email);
             if (user == null)
                 return BadRequest("Invalid Request");
-
             var resetPassResult = await _userManager.ResetPasswordAsync(user, resetPasswordDto.Token, resetPasswordDto.Password);
             if (!resetPassResult.Succeeded)
             {
                 var errors = resetPassResult.Errors.Select(e => e.Description);
-
                 return BadRequest(new { Errors = errors });
             }
-
             return Ok();
         }
 
@@ -205,11 +204,14 @@ namespace SmartParkingSystem.Controllers
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
                 return BadRequest("Invalid Email Confirmation Request");
-
             var confirmResult = await _userManager.ConfirmEmailAsync(user, token);
             if (!confirmResult.Succeeded)
                 return BadRequest("Invalid Email Confirmation Request");
-            return Ok();
+            return Ok(new
+            {
+                Status = true,
+                Message = "Email Confirmation is Successful"
+            });
         }
 
         [HttpPost("AddRole")]
@@ -221,12 +223,10 @@ namespace SmartParkingSystem.Controllers
                 if (model == null || model.Role == "")
                 {
                     return Ok(new ResponseDto(ResponseCode.Error, "parameters are missing", null));
-
                 }
                 if (await _roleManager.RoleExistsAsync(model.Role))
                 {
                     return Ok(new ResponseDto(ResponseCode.Error, "Role " + model.Role + " already exists", null));
-
                 }
                 var role = new IdentityRole();
                 role.Name = model.Role;

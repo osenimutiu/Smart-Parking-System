@@ -1048,6 +1048,10 @@
             "type": "string",
             "nullable": true
           },
+          "clientURI": {
+            "type": "string",
+            "nullable": true
+          },
           "roles": {
             "type": "array",
             "items": {
