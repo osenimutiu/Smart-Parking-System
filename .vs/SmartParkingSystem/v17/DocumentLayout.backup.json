@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|solutionrelative:smartparkingsystem\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|e:\\repos\\817project\\smartparkingsystem\\smartparkingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|solutionrelative:smartparkingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|e:\\repos\\817project\\smartparkingsystem\\smartparkingsystem\\entities\\datatransferobjects\\userforregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|solutionrelative:smartparkingsystem\\entities\\datatransferobjects\\userforregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|e:\\repos\\817project\\smartparkingsystem\\smartparkingsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|solutionrelative:smartparkingsystem\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|e:\\repos\\817project\\smartparkingsystem\\smartparkingsystem\\entities\\datatransferobjects\\userforregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|solutionrelative:smartparkingsystem\\entities\\datatransferobjects\\userforregistrationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|e:\\repos\\817project\\smartparkingsystem\\smartparkingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|solutionrelative:smartparkingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|e:\\repos\\817project\\smartparkingsystem\\smartparkingsystem\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -150,7 +150,7 @@
               "RelativeDocumentMoniker": "SmartParkingSystem\\Controllers\\AccountController.cs",
               "ToolTip": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Controllers\\AccountController.cs",
               "RelativeToolTip": "SmartParkingSystem\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAALoAAAAAAAAAAAAAAMoAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAADYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-09T13:31:21.936Z",
               "EditorCaption": ""
@@ -163,14 +163,14 @@
               "RelativeDocumentMoniker": "SmartParkingSystem\\appsettings.json",
               "ToolTip": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\appsettings.json",
               "RelativeToolTip": "SmartParkingSystem\\appsettings.json",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAABkAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAcwB4AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-02-05T18:12:19.216Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Program.cs",
               "RelativeDocumentMoniker": "SmartParkingSystem\\Program.cs",
@@ -178,18 +178,17 @@
               "RelativeToolTip": "SmartParkingSystem\\Program.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAAAF4AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T15:38:33.715Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-25T15:38:33.715Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "UserForRegistrationDto.cs",
               "DocumentMoniker": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Entities\\DataTransferObjects\\UserForRegistrationDto.cs",
               "RelativeDocumentMoniker": "SmartParkingSystem\\Entities\\DataTransferObjects\\UserForRegistrationDto.cs",
               "ToolTip": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Entities\\DataTransferObjects\\UserForRegistrationDto.cs",
               "RelativeToolTip": "SmartParkingSystem\\Entities\\DataTransferObjects\\UserForRegistrationDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAuwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-26T14:04:00.77Z",
               "EditorCaption": ""

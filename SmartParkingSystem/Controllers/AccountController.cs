@@ -51,7 +51,6 @@ namespace SmartParkingSystem.Controllers
         {
             if (userForRegistration == null || !ModelState.IsValid)
                 return BadRequest();
-
             //var user = _mapper.Map<User>(userForRegistration);
             var user = new User
             {
@@ -60,29 +59,25 @@ namespace SmartParkingSystem.Controllers
                 FirstName = userForRegistration.FirstName,
                 LastName = userForRegistration.LastName,
                 PhoneNumber = userForRegistration.PhoneNumber,
-                //EmailConfirmed = true,
-
+                EmailConfirmed = true
             };
-            
             var result = await _userManager.CreateAsync(user, userForRegistration.Password);
             if (!result.Succeeded)
             {
                 var errors = result.Errors.Select(e => e.Description);
-
                 return BadRequest(new RegistrationResponseDto { Errors = errors });
             }
+            //var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            //var param = new Dictionary<string, string?>
+            //{
+            //    {"token", token },
+            //    {"email", user.Email }
+            //};
 
-            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var param = new Dictionary<string, string?>
-            {
-                {"token", token },
-                {"email", user.Email }
-            };
+            //var callback = QueryHelpers.AddQueryString(userForRegistration.ClientURI, param);
 
-            var callback = QueryHelpers.AddQueryString(userForRegistration.ClientURI, param);
-
-            var message = new Message(new string[] { user.Email }, "Email Confirmation token", callback, null);
-            await _emailSender.SendEmailAsync(message);
+            //var message = new Message(new string[] { user.Email }, "Email Confirmation token", callback, null);
+            //await _emailSender.SendEmailAsync(message);
             var tempUser = await _userManager.FindByEmailAsync(userForRegistration.Email);
             foreach (var role in userForRegistration.Roles)
             {
@@ -110,7 +105,6 @@ namespace SmartParkingSystem.Controllers
                 }
                 await _userManager.AddToRoleAsync(tempUser, role);
             }
-
             return Ok(new
             {
                 Status = true,
@@ -125,11 +119,11 @@ namespace SmartParkingSystem.Controllers
             if (user == null)
                 return BadRequest("Invalid Request");
             //
-            if (!await _userManager.IsEmailConfirmedAsync(user))
-                return Unauthorized(new AuthResponseDto { ErrorMessage = "Email is not confirmed" });
-            var gdgd = await _signInManager.CheckPasswordSignInAsync(user, userForAuthentication.Password, true);
-            if (!await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
-                return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
+            //if (!await _userManager.IsEmailConfirmedAsync(user))
+            //    return Unauthorized(new AuthResponseDto { ErrorMessage = "Email is not confirmed" });
+            //var gdgd = await _signInManager.CheckPasswordSignInAsync(user, userForAuthentication.Password, true);
+            //if (!await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
+            //    return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
             //
             var result = await _signInManager.PasswordSignInAsync(user, userForAuthentication.Password, true,true);
             var role = await _userManager.GetRolesAsync(user);
