@@ -159,17 +159,16 @@ namespace SmartParkingSystem.Controllers
             if (user == null)
                 return BadRequest("Invalid Request");
 
-            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var param = new Dictionary<string, string?>
-            {
-                {"token", token },
-                {"email", forgotPasswordDto.Email }
-            };
+            //var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            //var param = new Dictionary<string, string?>
+            //{
+            //    {"token", token },
+            //    {"email", forgotPasswordDto.Email }
+            //};
+            //var callback = QueryHelpers.AddQueryString(forgotPasswordDto.ClientURI, param);
+            //var message = new Message(new string[] { user.Email }, "Reset password token", callback, null);
 
-            var callback = QueryHelpers.AddQueryString(forgotPasswordDto.ClientURI, param);
-            var message = new Message(new string[] { user.Email }, "Reset password token", callback, null);
-
-            await _emailSender.SendEmailAsync(message);
+            //await _emailSender.SendEmailAsync(message);
 
             return Ok();
         }

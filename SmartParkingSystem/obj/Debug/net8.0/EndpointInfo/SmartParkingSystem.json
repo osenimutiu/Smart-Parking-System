@@ -898,7 +898,6 @@
       },
       "ForgotPasswordDto": {
         "required": [
-          "clientURI",
           "email"
         ],
         "type": "object",
@@ -907,10 +906,6 @@
             "minLength": 1,
             "type": "string",
             "format": "email"
-          },
-          "clientURI": {
-            "minLength": 1,
-            "type": "string"
           }
         },
         "additionalProperties": false
