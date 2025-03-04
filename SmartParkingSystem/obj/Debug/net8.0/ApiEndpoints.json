@@ -376,8 +376,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "ParkingSpaceDto",
-        "Type": "SmartParkingSystem.Entities.DataTransferObjects.ParkingSpaceDto",
+        "Name": "ParkingSpaceVM",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.ParkingSpaceVM",
         "IsRequired": true
       }
     ],

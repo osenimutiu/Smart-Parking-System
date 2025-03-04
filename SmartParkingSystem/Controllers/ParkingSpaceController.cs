@@ -16,12 +16,15 @@ namespace SmartParkingSystem.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IParkingSpaceRepository _ParkingSpaceRepository;
+        private readonly IParkingOwnerRepository _parkingOwnerRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public ParkingSpaceController(IMapper mapper, IParkingSpaceRepository ParkingSpaceRepository, IHttpContextAccessor httpContextAccessor)
+        public ParkingSpaceController(IMapper mapper, IParkingSpaceRepository ParkingSpaceRepository, 
+            IHttpContextAccessor httpContextAccessor, IParkingOwnerRepository parkingOwnerRepository)
         {
             _mapper = mapper;
             _ParkingSpaceRepository = ParkingSpaceRepository;
             _httpContextAccessor = httpContextAccessor;
+            _parkingOwnerRepository = parkingOwnerRepository;
         }
 
         [HttpGet("GetAllParkingSpaces")]
@@ -101,11 +104,15 @@ namespace SmartParkingSystem.Controllers
         }
 
         [HttpPost("AddParkingSpace")]
-        public async Task<IActionResult> Post(ParkingSpaceDto ParkingSpaceDto)
+        public async Task<IActionResult> Post(ParkingSpaceVM ParkingSpaceVM)
         {
             try
             {
-                var ParkingSpace = _mapper.Map<ParkingSpace>(ParkingSpaceDto);
+                var authResp = new JwtHttpClient(_httpContextAccessor);
+                var authModel = authResp.SetJwtTokenResponse();
+                ParkingOwner parkingOwner = await _parkingOwnerRepository.GetParkingOwnerByEmail(authModel.Email);
+                var ParkingSpace = _mapper.Map<ParkingSpace>(ParkingSpaceVM);
+                ParkingSpace.OwnerId = parkingOwner.OwnerId;
                 ParkingSpace = await _ParkingSpaceRepository.AddParkingSpace(ParkingSpace);
 
                 var ParkingSpaceItemDto = _mapper.Map<ParkingSpaceDto>(ParkingSpace);

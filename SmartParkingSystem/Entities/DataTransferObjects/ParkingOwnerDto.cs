@@ -19,6 +19,15 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
         public bool IsAvailable { get; set; } = true;
         public int OwnerId { get; set; }
     }
+
+    public class ParkingSpaceVM
+    {
+        public string Location { get; set; }
+        public int TotalSlots { get; set; }
+        public int AvailableSlots { get; set; }
+        public string VehicleType { get; set; }
+        public bool IsAvailable { get; set; } = true;
+    }
     public class DriverDto
     {
         public int DriverId { get; set; }

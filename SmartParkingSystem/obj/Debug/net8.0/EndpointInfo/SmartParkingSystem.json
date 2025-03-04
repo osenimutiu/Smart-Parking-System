@@ -676,17 +676,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ParkingSpaceDto"
+                "$ref": "#/components/schemas/ParkingSpaceVM"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ParkingSpaceDto"
+                "$ref": "#/components/schemas/ParkingSpaceVM"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ParkingSpaceDto"
+                "$ref": "#/components/schemas/ParkingSpaceVM"
               }
             }
           }
@@ -961,6 +961,31 @@
           "ownerId": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParkingSpaceVM": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalSlots": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "availableSlots": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vehicleType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isAvailable": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
