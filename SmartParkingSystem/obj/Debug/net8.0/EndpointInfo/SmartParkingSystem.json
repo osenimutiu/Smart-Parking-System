@@ -279,17 +279,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BookingDto"
+                "$ref": "#/components/schemas/BookingVM"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/BookingDto"
+                "$ref": "#/components/schemas/BookingVM"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/BookingDto"
+                "$ref": "#/components/schemas/BookingVM"
               }
             }
           }
@@ -856,6 +856,35 @@
         },
         "additionalProperties": false
       },
+      "BookingVM": {
+        "type": "object",
+        "properties": {
+          "driverId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "spaceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bookingDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isConfirmed": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
       "ChangePasswordDto": {
         "type": "object",
         "properties": {
@@ -968,6 +997,10 @@
       "ParkingSpaceVM": {
         "type": "object",
         "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
           "location": {
             "type": "string",
             "nullable": true
@@ -986,6 +1019,10 @@
           },
           "isAvailable": {
             "type": "boolean"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false

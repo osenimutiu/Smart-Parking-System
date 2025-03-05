@@ -96,7 +96,7 @@ namespace SmartParkingSystem.Controllers
         }
 
         [HttpPost("AddBooking")]
-        public async Task<IActionResult> Post(BookingDto BookingDto)
+        public async Task<IActionResult> Post(BookingVM BookingDto)
         {
             try
             {

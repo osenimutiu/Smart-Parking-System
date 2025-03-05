@@ -58,7 +58,7 @@ namespace SmartParkingSystem.Repository
 
         public async Task<Driver> GetDriverByEmail(string emailAddress)
         {
-            return await _context.Drivers.FirstOrDefaultAsync(x=>x.Email.Equals(emailAddress));
+            return await _context.Drivers.FirstOrDefaultAsync(x=>x.Email==emailAddress);
         }
     }
 }

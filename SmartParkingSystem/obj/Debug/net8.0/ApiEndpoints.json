@@ -130,7 +130,7 @@
     "Parameters": [
       {
         "Name": "BookingDto",
-        "Type": "SmartParkingSystem.Entities.DataTransferObjects.BookingDto",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.BookingVM",
         "IsRequired": true
       }
     ],
