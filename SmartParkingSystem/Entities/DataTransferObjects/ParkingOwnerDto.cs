@@ -12,12 +12,14 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
     public class ParkingSpaceDto
     {
         public int SpaceId { get; set; }
+        public string Name { get; set; }
         public string Location { get; set; }
         public int TotalSlots { get; set; }
         public int AvailableSlots { get; set; }
         public string VehicleType { get; set; }
         public bool IsAvailable { get; set; } = true;
         public int OwnerId { get; set; }
+        public decimal Amount { get; set; }
     }
 
     public class ParkingSpaceVM
