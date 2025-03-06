@@ -968,6 +968,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
           "location": {
             "type": "string",
             "nullable": true
@@ -990,6 +994,10 @@
           "ownerId": {
             "type": "integer",
             "format": "int32"
+          },
+          "amount": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false

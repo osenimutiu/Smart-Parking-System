@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "E:\\repos\\817Project\\SmartParkingSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|e:\\repos\\817project\\smartparkingsystem\\smartparkingsystem\\entities\\datatransferobjects\\parkingownerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|solutionrelative:smartparkingsystem\\entities\\datatransferobjects\\parkingownerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|e:\\repos\\817project\\smartparkingsystem\\smartparkingsystem\\repository\\parkingspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|solutionrelative:smartparkingsystem\\repository\\parkingspacerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|e:\\repos\\817project\\smartparkingsystem\\smartparkingsystem\\controllers\\parkingspacecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|solutionrelative:smartparkingsystem\\controllers\\parkingspacecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|e:\\repos\\817project\\smartparkingsystem\\smartparkingsystem\\entities\\datatransferobjects\\parkingownerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|solutionrelative:smartparkingsystem\\entities\\datatransferobjects\\parkingownerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4E6C176F-53AB-46A5-9323-1A2DBEE9856F}|SmartParkingSystem\\SmartParkingSystem.csproj|e:\\repos\\817project\\smartparkingsystem\\smartparkingsystem\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,11 +50,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "ParkingSpaceRepository.cs",
+              "DocumentMoniker": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Repository\\ParkingSpaceRepository.cs",
+              "RelativeDocumentMoniker": "SmartParkingSystem\\Repository\\ParkingSpaceRepository.cs",
+              "ToolTip": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Repository\\ParkingSpaceRepository.cs",
+              "RelativeToolTip": "SmartParkingSystem\\Repository\\ParkingSpaceRepository.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAArwB0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T14:35:49.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "ParkingOwner.cs",
               "DocumentMoniker": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Entities\\Models\\ParkingOwner.cs",
               "RelativeDocumentMoniker": "SmartParkingSystem\\Entities\\Models\\ParkingOwner.cs",
@@ -62,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "BookingRepository.cs",
               "DocumentMoniker": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Repository\\BookingRepository.cs",
               "RelativeDocumentMoniker": "SmartParkingSystem\\Repository\\BookingRepository.cs",
@@ -70,11 +87,12 @@
               "RelativeToolTip": "SmartParkingSystem\\Repository\\BookingRepository.cs",
               "ViewState": "AgIAAC0AAAAAAAAAAAArwD8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T18:15:45.593Z"
+              "WhenOpened": "2025-03-05T18:15:45.593Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "BookingController.cs",
               "DocumentMoniker": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Controllers\\BookingController.cs",
               "RelativeDocumentMoniker": "SmartParkingSystem\\Controllers\\BookingController.cs",
@@ -82,12 +100,11 @@
               "RelativeToolTip": "SmartParkingSystem\\Controllers\\BookingController.cs",
               "ViewState": "AgIAAFYAAAAAAAAAAAAAAGIAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-05T16:51:26.742Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T16:51:26.742Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MappingProfile.cs",
               "DocumentMoniker": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\MappingProfile.cs",
               "RelativeDocumentMoniker": "SmartParkingSystem\\MappingProfile.cs",
@@ -99,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ParkingOwnerRepository.cs",
               "DocumentMoniker": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Repository\\ParkingOwnerRepository.cs",
               "RelativeDocumentMoniker": "SmartParkingSystem\\Repository\\ParkingOwnerRepository.cs",
@@ -111,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "IParkingOwnerRepository.cs",
               "DocumentMoniker": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Contracts\\IParkingOwnerRepository.cs",
               "RelativeDocumentMoniker": "SmartParkingSystem\\Contracts\\IParkingOwnerRepository.cs",
@@ -123,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ParkingOwnerController.cs",
               "DocumentMoniker": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Controllers\\ParkingOwnerController.cs",
               "RelativeDocumentMoniker": "SmartParkingSystem\\Controllers\\ParkingOwnerController.cs",
@@ -135,13 +152,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ParkingOwnerDto.cs",
               "DocumentMoniker": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Entities\\DataTransferObjects\\ParkingOwnerDto.cs",
               "RelativeDocumentMoniker": "SmartParkingSystem\\Entities\\DataTransferObjects\\ParkingOwnerDto.cs",
               "ToolTip": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Entities\\DataTransferObjects\\ParkingOwnerDto.cs",
               "RelativeToolTip": "SmartParkingSystem\\Entities\\DataTransferObjects\\ParkingOwnerDto.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACAAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAuwCAAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-04T17:18:21.553Z",
               "EditorCaption": ""
@@ -154,7 +171,7 @@
               "RelativeDocumentMoniker": "SmartParkingSystem\\Controllers\\ParkingSpaceController.cs",
               "ToolTip": "E:\\repos\\817Project\\SmartParkingSystem\\SmartParkingSystem\\Controllers\\ParkingSpaceController.cs",
               "RelativeToolTip": "SmartParkingSystem\\Controllers\\ParkingSpaceController.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAAAHUAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACIAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-04T17:13:19.605Z",
               "EditorCaption": ""
