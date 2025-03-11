@@ -11,6 +11,7 @@ using System.Net.Http.Headers;
 using System.Numerics;
 using System.Transactions;
 using Xamarin.Essentials;
+using Payment = SmartParkingSystem.Entities.DataTransferObjects.Payment;
 namespace SmartParkingSystem.Repository
 {
     public class PaymentRepository : IPaymentRepository
