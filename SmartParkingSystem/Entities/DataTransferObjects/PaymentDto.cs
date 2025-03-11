@@ -5,15 +5,14 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
 {
     public class PaymentDto
     {
-        public int BookingId { get; set; }
-        public decimal Amount { get; set; }
         public string Status { get; set; }
-        public DateTime PaymentDate { get; set; }
+        public string Message { get; set; }
     }
     public class Payment
     {
         [Key]
         public int Id { get; set; }
+        public string SlotOwner { get; set; }
         [Key]
         public int BookingId { get; set; }
         public string Message { get; set; }
@@ -55,6 +54,11 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
         [JsonPropertyName("amount")]
         [Range(100, 10000000, ErrorMessage = "Amount must be between {1} and {2}")]
         public string Amount { get; set; }
+
+        [JsonPropertyName("BookingId")]
+        public int BookingId { get; set; }
+        [JsonPropertyName("SlotOwner")]
+        public string SlotOwner { get; set; }
     }
 
     public class PaystackVerifyResponse
@@ -64,6 +68,23 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
 
         [JsonPropertyName("message")]
         public string Message { get; set; }
+        public string SlotOwner { get; set; }
+        public int BookingId { get; set; }
+        public string Email { get; set; }
+        public decimal Amount { get; set; }
+        public string Reference { get; set; }
+        public string Currency { get; set; }
+        public string PaymentMethod { get; set; }
+    }
+    public class PaymentHistoryQueryParameters
+    {
+        [Required(ErrorMessage = "Slot owner's name is required.")]
+        public string SlotOwnersName { get; set; }
 
+        [Range(1, int.MaxValue, ErrorMessage = "Page number must be greater than 0.")]
+        public int PageNumber { get; set; } = 1;
+
+        [Range(1, 100, ErrorMessage = "Page size must be between 1 and 100.")]
+        public int PageSize { get; set; } = 10;
     }
 }

@@ -52,6 +52,20 @@ namespace SmartParkingSystem.Controllers
                _logger.LogError("Error occured", ex.Message);
                 return null;
             }
+        } 
+        [HttpGet("paymentHistory")]
+        public async Task<List<Payment>> GetPaymentHistory([FromQuery] PaymentHistoryQueryParameters request)
+        {
+            try
+            {
+                var response = await _paymentRepository.GetSlothOwnersPaymentHistory(request);
+                return response;
+            }
+            catch (Exception ex)
+            {
+               _logger.LogError("Error occured", ex.Message);
+                return null;
+            }
         }
     }
 }

@@ -58,6 +58,8 @@ namespace SmartParkingSystem.Repository
                         Email = request.Email,
                         Currency = "NGN",
                         Status = "pending",
+                        SlotOwner = request.SlotOwner,
+                        BookingId = request.BookingId,
                         Reference = responseFromPaystack.Data.Reference
                     };
                     await _context.AddAsync(payment);
@@ -140,6 +142,30 @@ namespace SmartParkingSystem.Repository
                 return response;
             }
 
+        }
+        public async Task<List<Payment>> GetSlothOwnersPaymentHistory(PaymentHistoryQueryParameters request)
+        {
+            try
+            {
+                List<Payment> response = new List<Payment>();
+
+                if (!string.IsNullOrEmpty(request.SlotOwnersName))
+                {
+                    response = await _context.Payments
+                        .Where(x => x.SlotOwner == request.SlotOwnersName)
+                        .OrderBy(x => x.PaymentDate)
+                        .Skip((request.PageNumber - 1) * request.PageSize)
+                        .Take(request.PageSize)
+                        .ToListAsync();
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred getting payment details for {request.SlotOwnersName}", ex.Message);
+                return new List<Payment>();
+            }
         }
     }
 }

@@ -7,5 +7,7 @@ namespace SmartParkingSystem.Contracts
     {
         Task<InitiateResponse> InitializePayment(PaystackInitateRequest request);
         Task<PaystackVerifyResponse> VerifyPayment(string reference);
+        Task<List<Payment>> GetSlothOwnersPaymentHistory(PaymentHistoryQueryParameters request);
+
     }
 }
