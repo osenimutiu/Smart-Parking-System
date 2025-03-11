@@ -1,10 +1,7 @@
 ﻿using SmartParkingSystem.Entities.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
-=======
 using SmartParkingSystem.Entities.DataTransferObjects;
->>>>>>> origin/master
 
 namespace SmartParkingSystem.Repository
 {
@@ -21,6 +18,8 @@ namespace SmartParkingSystem.Repository
 
             modelBuilder.Entity<Booking>().HasOne(b => b.Driver).WithMany().HasForeignKey(b => b.DriverId);
             modelBuilder.Entity<Booking>().HasOne(b => b.ParkingSpace).WithMany().HasForeignKey(b => b.SpaceId);
+            //modelBuilder.Entity<Payment>().HasOne(b => b.ParkingSpace).WithMany().HasForeignKey(b => b.SpaceId);
+
         }
         public DbSet<ParkingOwner> ParkingOwners { get; set; }
         public DbSet<ParkingSpace> ParkingSpaces { get; set; }
