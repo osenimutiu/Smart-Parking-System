@@ -12,13 +12,17 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
     public class ParkingSpaceDto
     {
         public int SpaceId { get; set; }
+<<<<<<< HEAD
         public string Name { get; set; }
+=======
+>>>>>>> origin/master
         public string Location { get; set; }
         public int TotalSlots { get; set; }
         public int AvailableSlots { get; set; }
         public string VehicleType { get; set; }
         public bool IsAvailable { get; set; } = true;
         public int OwnerId { get; set; }
+<<<<<<< HEAD
         public decimal Amount { get; set; }
     }
 
@@ -31,6 +35,8 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
         public string VehicleType { get; set; }
         public bool IsAvailable { get; set; } = true; 
         public decimal Amount { get; set; }
+=======
+>>>>>>> origin/master
     }
     public class DriverDto
     {
@@ -50,6 +56,7 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
         public DateTime EndTime { get; set; }
         public bool IsConfirmed { get; set; } = false;
     }
+<<<<<<< HEAD
 
     public class BookingVM
     {
@@ -59,5 +66,16 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public bool IsConfirmed { get; set; } = false;
+=======
+    public class PaymentRequest
+    {
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public decimal Amount { get; set; }
+
+        public string Reference { get; set; }
+>>>>>>> origin/master
     }
 }

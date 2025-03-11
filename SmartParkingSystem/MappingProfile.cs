@@ -15,12 +15,19 @@ namespace SmartParkingSystem
             CreateMap<ParkingOwnerDto, ParkingOwner>();
             CreateMap<ParkingSpace, ParkingSpaceDto>();
             CreateMap<ParkingSpaceDto, ParkingSpace>();
+<<<<<<< HEAD
             CreateMap<ParkingSpaceVM, ParkingSpace>();
             CreateMap<Booking, BookingDto>();
             CreateMap<BookingDto, Booking>();
             CreateMap<BookingVM, Booking>();
             CreateMap<Driver, DriverDto>();
             CreateMap<DriverDto, Driver>(); 
+=======
+            CreateMap<Booking, BookingDto>();
+            CreateMap<BookingDto, Booking>();
+            CreateMap<Driver, DriverDto>();
+            CreateMap<DriverDto, Driver>();
+>>>>>>> origin/master
         }
     }
 }

@@ -31,6 +31,7 @@ namespace SmartParkingSystem.Repository
             return await _context.Drivers.ToListAsync();
         }
 
+<<<<<<< HEAD
         public async Task<List<Driver>> GetDriversBasedOnUser(string role, string email)
         {
             if (role.ToLower() == "driver")
@@ -38,6 +39,8 @@ namespace SmartParkingSystem.Repository
             return await _context.Drivers.ToListAsync();
         }
 
+=======
+>>>>>>> origin/master
         public async Task<Driver> GetDriver(int id)
         {
             return await _context.Drivers.FindAsync(id);
@@ -54,11 +57,15 @@ namespace SmartParkingSystem.Repository
                 DriverItem.PhoneNumber = Driver.PhoneNumber;
                 await _context.SaveChangesAsync();
             }
+<<<<<<< HEAD
         }
 
         public async Task<Driver> GetDriverByEmail(string emailAddress)
         {
             return await _context.Drivers.FirstOrDefaultAsync(x=>x.Email==emailAddress);
+=======
+
+>>>>>>> origin/master
         }
     }
 }

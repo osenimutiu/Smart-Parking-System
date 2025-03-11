@@ -26,11 +26,17 @@ namespace SmartParkingSystem.Repository
             await _context.SaveChangesAsync();
         }
 
+<<<<<<< HEAD
         public async Task<List<ParkingSpace>> GetListParkingSpaces(string role, string email)
         {
             if (role.ToLower() == "owner")
                 return await _context.ParkingSpaces.Where(x=>x.Owner.Email == email).Include(y => y.Owner).DefaultIfEmpty().ToListAsync();
             return await _context.ParkingSpaces.Include(x => x.Owner).DefaultIfEmpty().ToListAsync();
+=======
+        public async Task<List<ParkingSpace>> GetListParkingSpaces()
+        {
+            return await _context.ParkingSpaces.Include(x => x.Owner).ToListAsync();
+>>>>>>> origin/master
         }
 
         public async Task<ParkingSpace> GetParkingSpace(int id)

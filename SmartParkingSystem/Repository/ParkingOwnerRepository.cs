@@ -36,11 +36,14 @@ namespace SmartParkingSystem.Repository
             return await _context.ParkingOwners.FindAsync(id);
         }
 
+<<<<<<< HEAD
         public async Task<ParkingOwner> GetParkingOwnerByEmail(string email)
         {
             return await _context.ParkingOwners.FirstOrDefaultAsync(x => x.Email == email);
         }
 
+=======
+>>>>>>> origin/master
         public async Task UpdateParkingOwner(ParkingOwner ParkingOwner)
         {
             var ParkingOwnerItem = await _context.ParkingOwners.FirstOrDefaultAsync(x => x.OwnerId == ParkingOwner.OwnerId);

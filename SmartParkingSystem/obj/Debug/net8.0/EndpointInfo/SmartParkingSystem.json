@@ -279,17 +279,29 @@
           "content": {
             "application/json": {
               "schema": {
+<<<<<<< HEAD
                 "$ref": "#/components/schemas/BookingVM"
+=======
+                "$ref": "#/components/schemas/BookingDto"
+>>>>>>> origin/master
               }
             },
             "text/json": {
               "schema": {
+<<<<<<< HEAD
                 "$ref": "#/components/schemas/BookingVM"
+=======
+                "$ref": "#/components/schemas/BookingDto"
+>>>>>>> origin/master
               }
             },
             "application/*+json": {
               "schema": {
+<<<<<<< HEAD
                 "$ref": "#/components/schemas/BookingVM"
+=======
+                "$ref": "#/components/schemas/BookingDto"
+>>>>>>> origin/master
               }
             }
           }
@@ -343,6 +355,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "/api/Booking/getDetailsForBooking/{spaceId}": {
       "get": {
         "tags": [
@@ -366,6 +379,8 @@
         }
       }
     },
+=======
+>>>>>>> origin/master
     "/api/Driver/GetAllDrivers": {
       "get": {
         "tags": [
@@ -378,6 +393,7 @@
         }
       }
     },
+<<<<<<< HEAD
     "/api/Driver/getDriversBasedOnUsers": {
       "get": {
         "tags": [
@@ -390,6 +406,8 @@
         }
       }
     },
+=======
+>>>>>>> origin/master
     "/api/Driver/GetDriverById/{id}": {
       "get": {
         "tags": [
@@ -676,17 +694,29 @@
           "content": {
             "application/json": {
               "schema": {
+<<<<<<< HEAD
                 "$ref": "#/components/schemas/ParkingSpaceVM"
+=======
+                "$ref": "#/components/schemas/ParkingSpaceDto"
+>>>>>>> origin/master
               }
             },
             "text/json": {
               "schema": {
+<<<<<<< HEAD
                 "$ref": "#/components/schemas/ParkingSpaceVM"
+=======
+                "$ref": "#/components/schemas/ParkingSpaceDto"
+>>>>>>> origin/master
               }
             },
             "application/*+json": {
               "schema": {
+<<<<<<< HEAD
                 "$ref": "#/components/schemas/ParkingSpaceVM"
+=======
+                "$ref": "#/components/schemas/ParkingSpaceDto"
+>>>>>>> origin/master
               }
             }
           }
@@ -856,6 +886,7 @@
         },
         "additionalProperties": false
       },
+<<<<<<< HEAD
       "BookingVM": {
         "type": "object",
         "properties": {
@@ -885,6 +916,8 @@
         },
         "additionalProperties": false
       },
+=======
+>>>>>>> origin/master
       "ChangePasswordDto": {
         "type": "object",
         "properties": {
@@ -927,6 +960,10 @@
       },
       "ForgotPasswordDto": {
         "required": [
+<<<<<<< HEAD
+=======
+          "clientURI",
+>>>>>>> origin/master
           "email"
         ],
         "type": "object",
@@ -935,6 +972,13 @@
             "minLength": 1,
             "type": "string",
             "format": "email"
+<<<<<<< HEAD
+=======
+          },
+          "clientURI": {
+            "minLength": 1,
+            "type": "string"
+>>>>>>> origin/master
           }
         },
         "additionalProperties": false
@@ -968,10 +1012,13 @@
             "type": "integer",
             "format": "int32"
           },
+<<<<<<< HEAD
           "name": {
             "type": "string",
             "nullable": true
           },
+=======
+>>>>>>> origin/master
           "location": {
             "type": "string",
             "nullable": true
@@ -994,6 +1041,7 @@
           "ownerId": {
             "type": "integer",
             "format": "int32"
+<<<<<<< HEAD
           },
           "amount": {
             "type": "number",
@@ -1031,6 +1079,8 @@
           "amount": {
             "type": "number",
             "format": "double"
+=======
+>>>>>>> origin/master
           }
         },
         "additionalProperties": false

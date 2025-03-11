@@ -5,7 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using SmartParkingSystem.Contracts;
 using SmartParkingSystem.Entities.DataTransferObjects;
 using SmartParkingSystem.Entities.Models;
+<<<<<<< HEAD
 using SmartParkingSystem.JwtFeatures;
+=======
+>>>>>>> origin/master
 
 namespace SmartParkingSystem.Controllers
 {
@@ -16,6 +19,7 @@ namespace SmartParkingSystem.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IBookingRepository _BookingRepository;
+<<<<<<< HEAD
         private readonly IParkingSpaceRepository _parkingSpaceRepository;
         private readonly IDriverRepository _driverRepository; 
         private readonly IHttpContextAccessor _httpContextAccessor;
@@ -28,6 +32,13 @@ namespace SmartParkingSystem.Controllers
             _parkingSpaceRepository = parkingSpaceRepository;
             _driverRepository = driverRepository;
             _httpContextAccessor = httpContextAccessor;
+=======
+
+        public BookingController(IMapper mapper, IBookingRepository BookingRepository)
+        {
+            _mapper = mapper;
+            _BookingRepository = BookingRepository;
+>>>>>>> origin/master
         }
 
         [HttpGet("GetAllBookings")]
@@ -81,10 +92,18 @@ namespace SmartParkingSystem.Controllers
             try
             {
                 var Booking = await _BookingRepository.GetBooking(id);
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
                 if (Booking == null)
                 {
                     return NotFound();
                 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
                 await _BookingRepository.DeleteBooking(Booking);
 
                 return NoContent();
@@ -96,14 +115,28 @@ namespace SmartParkingSystem.Controllers
         }
 
         [HttpPost("AddBooking")]
+<<<<<<< HEAD
         public async Task<IActionResult> Post(BookingVM BookingDto)
+=======
+        public async Task<IActionResult> Post(BookingDto BookingDto)
+>>>>>>> origin/master
         {
             try
             {
                 var Booking = _mapper.Map<Booking>(BookingDto);
+<<<<<<< HEAD
                 Booking = await _BookingRepository.AddBooking(Booking);
                 var BookingItemDto = _mapper.Map<BookingDto>(Booking);
                 return CreatedAtAction("Get", new { id = BookingItemDto.BookingId }, BookingItemDto);
+=======
+
+                Booking = await _BookingRepository.AddBooking(Booking);
+
+                var BookingItemDto = _mapper.Map<BookingDto>(Booking);
+
+                return CreatedAtAction("Get", new { id = BookingItemDto.BookingId }, BookingItemDto);
+
+>>>>>>> origin/master
             }
             catch (Exception ex)
             {
@@ -137,6 +170,7 @@ namespace SmartParkingSystem.Controllers
             }
         }
 
+<<<<<<< HEAD
         [HttpGet("getDetailsForBooking/{spaceId}")]
         public async Task<IActionResult> getDetailsForBooking(int spaceId)
         {
@@ -145,5 +179,7 @@ namespace SmartParkingSystem.Controllers
             BookingModel bookingModel = await _BookingRepository.GetDetailsForBooking(spaceId, authModel.Email);
             return Ok(bookingModel);
         }
+=======
+>>>>>>> origin/master
     }
 }

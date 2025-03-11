@@ -6,9 +6,16 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
     {
         [Required]
         [EmailAddress]
+<<<<<<< HEAD
         public string? Email { get; set; }
 
         //[Required]
         //public string? ClientURI { get; set; }
+=======
+        public string ?Email { get; set; }
+        
+        [Required]
+        public string? ClientURI { get; set; }
+>>>>>>> origin/master
     }
 }

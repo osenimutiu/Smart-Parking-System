@@ -1,6 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartParkingSystem.Contracts;
+<<<<<<< HEAD
 using SmartParkingSystem.Entities.DataTransferObjects;
+=======
+>>>>>>> origin/master
 using SmartParkingSystem.Entities.Models;
 
 namespace SmartParkingSystem.Repository
@@ -8,6 +11,7 @@ namespace SmartParkingSystem.Repository
     public class BookingRepository : IBookingRepository
     {
         private readonly RepositoryContext _context;
+<<<<<<< HEAD
         private readonly IDriverRepository _driverRepository;
         private readonly IParkingSpaceRepository _parkingSpaceRepository;
 
@@ -16,6 +20,12 @@ namespace SmartParkingSystem.Repository
             _context = context;
             _driverRepository = driverRepository;
             _parkingSpaceRepository = parkingSpaceRepository;
+=======
+
+        public BookingRepository(RepositoryContext context)
+        {
+            _context = context;
+>>>>>>> origin/master
         }
 
         public async Task<Booking> AddBooking(Booking Booking)
@@ -57,6 +67,7 @@ namespace SmartParkingSystem.Repository
             }
 
         }
+<<<<<<< HEAD
         public async Task<BookingModel> GetDetailsForBooking(int spaceId, string emailAddress)
         {
             ParkingSpace parkingSpace = await _parkingSpaceRepository.GetParkingSpace(spaceId);
@@ -68,5 +79,7 @@ namespace SmartParkingSystem.Repository
             };
             return bookingModel;
         }
+=======
+>>>>>>> origin/master
     }
 }

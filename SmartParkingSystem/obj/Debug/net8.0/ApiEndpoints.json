@@ -130,7 +130,11 @@
     "Parameters": [
       {
         "Name": "BookingDto",
+<<<<<<< HEAD
         "Type": "SmartParkingSystem.Entities.DataTransferObjects.BookingVM",
+=======
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.BookingDto",
+>>>>>>> origin/master
         "IsRequired": true
       }
     ],
@@ -180,6 +184,7 @@
   },
   {
     "ContainingType": "SmartParkingSystem.Controllers.BookingController",
+<<<<<<< HEAD
     "Method": "getDetailsForBooking",
     "RelativePath": "api/Booking/getDetailsForBooking/{spaceId}",
     "HttpMethod": "GET",
@@ -196,6 +201,8 @@
   },
   {
     "ContainingType": "SmartParkingSystem.Controllers.BookingController",
+=======
+>>>>>>> origin/master
     "Method": "Put",
     "RelativePath": "api/Booking/UpdateBooking/{id}",
     "HttpMethod": "PUT",
@@ -259,6 +266,7 @@
   },
   {
     "ContainingType": "SmartParkingSystem.Controllers.DriverController",
+<<<<<<< HEAD
     "Method": "GetDriversBasedOnUser",
     "RelativePath": "api/Driver/getDriversBasedOnUsers",
     "HttpMethod": "GET",
@@ -269,6 +277,8 @@
   },
   {
     "ContainingType": "SmartParkingSystem.Controllers.DriverController",
+=======
+>>>>>>> origin/master
     "Method": "Put",
     "RelativePath": "api/Driver/UpdateDriver/{id}",
     "HttpMethod": "PUT",
@@ -376,8 +386,13 @@
     "Order": 0,
     "Parameters": [
       {
+<<<<<<< HEAD
         "Name": "ParkingSpaceVM",
         "Type": "SmartParkingSystem.Entities.DataTransferObjects.ParkingSpaceVM",
+=======
+        "Name": "ParkingSpaceDto",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.ParkingSpaceDto",
+>>>>>>> origin/master
         "IsRequired": true
       }
     ],
@@ -448,19 +463,105 @@
   },
   {
     "ContainingType": "SmartParkingSystem.Controllers.PaymentController",
+<<<<<<< HEAD
     "Method": "Post",
     "RelativePath": "api/Payment/addPayment",
+=======
+    "Method": "InitializeTransaction",
+    "RelativePath": "api/Payment/initialize",
+>>>>>>> origin/master
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+<<<<<<< HEAD
         "Name": "bookingDto",
         "Type": "SmartParkingSystem.Entities.DataTransferObjects.BookingDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
+=======
+        "Name": "request",
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.PaystackInitateRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.InitiateResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.PaymentController",
+    "Method": "GetPaymentHistory",
+    "RelativePath": "api/Payment/paymentHistory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "SlotOwnersName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[SmartParkingSystem.Entities.DataTransferObjects.Payment, SmartParkingSystem, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SmartParkingSystem.Controllers.PaymentController",
+    "Method": "VerifyTransaction",
+    "RelativePath": "api/Payment/verify",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reference",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SmartParkingSystem.Entities.DataTransferObjects.PaystackVerifyResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+>>>>>>> origin/master
   },
   {
     "ContainingType": "SmartParkingSystem.Controllers.WeatherForecastController",

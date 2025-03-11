@@ -5,7 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using SmartParkingSystem.Contracts;
 using SmartParkingSystem.Entities.DataTransferObjects;
 using SmartParkingSystem.Entities.Models;
+<<<<<<< HEAD
 using SmartParkingSystem.JwtFeatures;
+=======
+>>>>>>> origin/master
 
 namespace SmartParkingSystem.Controllers
 {
@@ -16,6 +19,7 @@ namespace SmartParkingSystem.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IParkingSpaceRepository _ParkingSpaceRepository;
+<<<<<<< HEAD
         private readonly IParkingOwnerRepository _parkingOwnerRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
         public ParkingSpaceController(IMapper mapper, IParkingSpaceRepository ParkingSpaceRepository, 
@@ -25,6 +29,13 @@ namespace SmartParkingSystem.Controllers
             _ParkingSpaceRepository = ParkingSpaceRepository;
             _httpContextAccessor = httpContextAccessor;
             _parkingOwnerRepository = parkingOwnerRepository;
+=======
+
+        public ParkingSpaceController(IMapper mapper, IParkingSpaceRepository ParkingSpaceRepository)
+        {
+            _mapper = mapper;
+            _ParkingSpaceRepository = ParkingSpaceRepository;
+>>>>>>> origin/master
         }
 
         [HttpGet("GetAllParkingSpaces")]
@@ -32,6 +43,7 @@ namespace SmartParkingSystem.Controllers
         {
             try
             {
+<<<<<<< HEAD
                 string username = User.Identity.Name;
                 string role = String.Empty;
                 List<ParkingSpace> listParkingSpaces = null;
@@ -46,10 +58,20 @@ namespace SmartParkingSystem.Controllers
                 else 
                     listParkingSpaces = await _ParkingSpaceRepository.GetListParkingSpaces(authModel.Role, authModel.Email);
                     listParkingSpacesDto = _mapper.Map<IEnumerable<ParkingSpaceDto>>(listParkingSpaces);
+=======
+                var listParkingSpaces = await _ParkingSpaceRepository.GetListParkingSpaces();
+
+                var listParkingSpacesDto = _mapper.Map<IEnumerable<ParkingSpaceDto>>(listParkingSpaces);
+
+>>>>>>> origin/master
                 return Ok(listParkingSpaces);
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
                 return BadRequest(ex.Message);
             }
 
@@ -104,6 +126,7 @@ namespace SmartParkingSystem.Controllers
         }
 
         [HttpPost("AddParkingSpace")]
+<<<<<<< HEAD
         public async Task<IActionResult> Post(ParkingSpaceVM ParkingSpaceVM)
         {
             try
@@ -113,6 +136,13 @@ namespace SmartParkingSystem.Controllers
                 ParkingOwner parkingOwner = await _parkingOwnerRepository.GetParkingOwnerByEmail(authModel.Email);
                 var ParkingSpace = _mapper.Map<ParkingSpace>(ParkingSpaceVM);
                 ParkingSpace.OwnerId = parkingOwner.OwnerId;
+=======
+        public async Task<IActionResult> Post(ParkingSpaceDto ParkingSpaceDto)
+        {
+            try
+            {
+                var ParkingSpace = _mapper.Map<ParkingSpace>(ParkingSpaceDto);
+>>>>>>> origin/master
                 ParkingSpace = await _ParkingSpaceRepository.AddParkingSpace(ParkingSpace);
 
                 var ParkingSpaceItemDto = _mapper.Map<ParkingSpaceDto>(ParkingSpace);
