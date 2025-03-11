@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using SmartParkingSystem.Contracts;
 using SmartParkingSystem.Entities.DataTransferObjects;
 using SmartParkingSystem.Entities.Models;
+using Payment = SmartParkingSystem.Entities.DataTransferObjects.Payment;
 
 namespace SmartParkingSystem.Controllers
 {

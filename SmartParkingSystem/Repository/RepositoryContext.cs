@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SmartParkingSystem.Entities.DataTransferObjects;
+using Payment = SmartParkingSystem.Entities.DataTransferObjects.Payment;
 
 namespace SmartParkingSystem.Repository
 {

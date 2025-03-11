@@ -1,5 +1,6 @@
 ﻿using SmartParkingSystem.Entities.DataTransferObjects;
 using SmartParkingSystem.Entities.Models;
+using Payment = SmartParkingSystem.Entities.DataTransferObjects.Payment;
 
 namespace SmartParkingSystem.Contracts
 {
