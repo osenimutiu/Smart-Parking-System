@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-﻿namespace SmartParkingSystem.Entities.DataTransferObjects
-{
-    public class PaymentDto
-    {
-        public int BookingId { get; set; }
-        public decimal Amount { get; set; }
-        public string Status { get; set; }
-        public DateTime PaymentDate { get; set; }
-=======
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -96,6 +86,5 @@ namespace SmartParkingSystem.Entities.DataTransferObjects
 
         [Range(1, 100, ErrorMessage = "Page size must be between 1 and 100.")]
         public int PageSize { get; set; } = 10;
->>>>>>> origin/master
     }
 }
