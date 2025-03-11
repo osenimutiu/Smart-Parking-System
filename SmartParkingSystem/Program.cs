@@ -22,7 +22,6 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddIdentity<User, IdentityRole>(opt =>
 {
-<<<<<<< HEAD
     opt.Password.RequiredLength = 10;
     opt.Password.RequireDigit = false;
     opt.Password.RequireNonAlphanumeric = false;
@@ -32,17 +31,6 @@ builder.Services.AddIdentity<User, IdentityRole>(opt =>
     opt.User.RequireUniqueEmail = false;
     opt.Lockout.MaxFailedAccessAttempts = 3;
     opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(30);
-=======
-    opt.Password.RequiredLength = 5;
-    opt.Password.RequireDigit = false;
-    opt.Password.RequireNonAlphanumeric = false;
-    opt.Password.RequireUppercase = false;
-    opt.Password.RequiredUniqueChars = 1;
-    opt.Password.RequireLowercase = false;
-    opt.User.RequireUniqueEmail = false;
-    opt.Lockout.MaxFailedAccessAttempts = 3;
-    opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(5);
->>>>>>> origin/master
     opt.Lockout.AllowedForNewUsers = false;
 }).AddEntityFrameworkStores<RepositoryContext>()
     .AddDefaultTokenProviders();
@@ -101,7 +89,6 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-<<<<<<< HEAD
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
@@ -109,8 +96,6 @@ builder.Services.AddCors(options =>
                           .AllowAnyHeader()
                           .AllowAnyMethod());
 });
-=======
->>>>>>> origin/master
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
