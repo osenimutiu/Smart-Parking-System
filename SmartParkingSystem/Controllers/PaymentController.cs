@@ -10,45 +10,21 @@ namespace SmartParkingSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-<<<<<<< HEAD
-    [Authorize]
-=======
     //[Authorize]
->>>>>>> origin/master
     public class PaymentController : ControllerBase
     {
         private readonly IMapper _mapper;
         private readonly IPaymentRepository _paymentRepository;
-<<<<<<< HEAD
-
-        public PaymentController(IMapper mapper, IPaymentRepository paymentRepository)
-        {
-            _mapper = mapper;
-=======
         private readonly ILogger<PaymentController> _logger;
 
         public PaymentController(IMapper mapper, IPaymentRepository paymentRepository, ILogger<PaymentController> logger)
         {
             _mapper = mapper;
             _logger = logger;
->>>>>>> origin/master
             _paymentRepository = paymentRepository;
         }
 
 
-<<<<<<< HEAD
-        [HttpPost("addPayment")]
-        public async Task<IActionResult> Post(BookingDto bookingDto)
-        {
-            try
-            {
-                Payment payment = await _paymentRepository.ProcessPayment(bookingDto);
-                return Ok(new { Id = payment.PaymentId });
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-=======
         [HttpPost("initialize")]
         public async Task<InitiateResponse> InitializeTransaction([FromBody] PaystackInitateRequest request)
         {
@@ -89,7 +65,6 @@ namespace SmartParkingSystem.Controllers
             {
                _logger.LogError("Error occured", ex.Message);
                 return null;
->>>>>>> origin/master
             }
         }
     }
