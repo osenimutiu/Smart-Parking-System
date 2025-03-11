@@ -5,10 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using SmartParkingSystem.Contracts;
 using SmartParkingSystem.Entities.DataTransferObjects;
 using SmartParkingSystem.Entities.Models;
-<<<<<<< HEAD
 using SmartParkingSystem.JwtFeatures;
-=======
->>>>>>> origin/master
+
 
 namespace SmartParkingSystem.Controllers
 {
@@ -19,20 +17,12 @@ namespace SmartParkingSystem.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IDriverRepository _DriverRepository;
-<<<<<<< HEAD
         private readonly IHttpContextAccessor _httpContextAccessor;
         public DriverController(IMapper mapper, IDriverRepository DriverRepository, IHttpContextAccessor httpContextAccessor)
         {
             _mapper = mapper;
             _DriverRepository = DriverRepository;
             _httpContextAccessor = httpContextAccessor;
-=======
-
-        public DriverController(IMapper mapper, IDriverRepository DriverRepository)
-        {
-            _mapper = mapper;
-            _DriverRepository = DriverRepository;
->>>>>>> origin/master
         }
 
         [HttpGet("GetAllDrivers")]
@@ -51,7 +41,6 @@ namespace SmartParkingSystem.Controllers
             }
 
         }
-<<<<<<< HEAD
         [HttpGet("getDriversBasedOnUsers")]
         public async Task<IActionResult> GetDriversBasedOnUser()
         {
@@ -78,9 +67,7 @@ namespace SmartParkingSystem.Controllers
             }
 
         }
-=======
 
->>>>>>> origin/master
         //[HttpGet("{id}")]
         [HttpGet("GetDriverById/{id}")]
         public async Task<IActionResult> Get(int id)
