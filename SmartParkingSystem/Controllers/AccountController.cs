@@ -61,6 +61,7 @@ namespace SmartParkingSystem.Controllers
                 PhoneNumber = userForRegistration.PhoneNumber,
                 EmailConfirmed = true
             };
+
             var result = await _userManager.CreateAsync(user, userForRegistration.Password);
             if (!result.Succeeded)
             {
@@ -110,6 +111,7 @@ namespace SmartParkingSystem.Controllers
                 Status = true,
                 Message = "Registered Successfully"
             });
+
         }
 
         [HttpPost("Login")]
@@ -130,6 +132,7 @@ namespace SmartParkingSystem.Controllers
             if (result.Succeeded)
             {
                 var token = GenerateJwtToken(user, role);
+
                 return Ok(new
                 {
                     token,
@@ -138,6 +141,7 @@ namespace SmartParkingSystem.Controllers
                     user.LastName,
                     user.Email,
                     role
+
                 });
             }
             else
@@ -158,7 +162,6 @@ namespace SmartParkingSystem.Controllers
             var user = await _userManager.FindByEmailAsync(forgotPasswordDto.Email);
             if (user == null)
                 return BadRequest("Invalid Request");
-
             //var token = await _userManager.GeneratePasswordResetTokenAsync(user);
             //var param = new Dictionary<string, string?>
             //{
@@ -188,6 +191,7 @@ namespace SmartParkingSystem.Controllers
                 var errors = resetPassResult.Errors.Select(e => e.Description);
                 return BadRequest(new { Errors = errors });
             }
+
             return Ok();
         }
 
@@ -216,10 +220,12 @@ namespace SmartParkingSystem.Controllers
                 if (model == null || model.Role == "")
                 {
                     return Ok(new ResponseDto(ResponseCode.Error, "parameters are missing", null));
+
                 }
                 if (await _roleManager.RoleExistsAsync(model.Role))
                 {
                     return Ok(new ResponseDto(ResponseCode.Error, "Role " + model.Role + " already exists", null));
+
                 }
                 var role = new IdentityRole();
                 role.Name = model.Role;
@@ -279,6 +285,7 @@ namespace SmartParkingSystem.Controllers
     {
         new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
         new Claim(JwtRegisteredClaimNames.Email, user.Email),
+
         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
         new Claim(ClaimTypes.NameIdentifier, user.Id),
         //Mutiu Added

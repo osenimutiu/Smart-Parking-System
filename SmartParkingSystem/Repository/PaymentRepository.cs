@@ -1,42 +1,170 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Azure;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using PayStack.Net;
 using SmartParkingSystem.Contracts;
 using SmartParkingSystem.Entities.DataTransferObjects;
 using SmartParkingSystem.Entities.Models;
-
+using System;
+using System.Net.Http.Headers;
+using System.Numerics;
+using System.Transactions;
+using Xamarin.Essentials;
+using Payment = SmartParkingSystem.Entities.DataTransferObjects.Payment;
 namespace SmartParkingSystem.Repository
 {
     public class PaymentRepository : IPaymentRepository
     {
         private readonly RepositoryContext _context;
         private readonly INotificationRepository _notificationRepository;
-        public PaymentRepository(RepositoryContext context, INotificationRepository notificationRepository)
+        private readonly ILogger<PaymentRepository> _logger;
+        private readonly IConfiguration _config;
+        private PayStackApi _payStackApi;
+        private readonly string _secretKey;
+        public PaymentRepository(RepositoryContext context, INotificationRepository notificationRepository, IConfiguration config, ILogger<PaymentRepository> logger)
         {
+            _config = config;
+            _logger = logger;
+            _secretKey = _config["Paystack:SecretKey"];
+            _payStackApi = new PayStackApi(_secretKey);
             _context = context;
             _notificationRepository = notificationRepository;
+
         }
 
 
-        public async Task<Payment> ProcessPayment(BookingDto bookingDto)
+        public async Task<InitiateResponse> InitializePayment(PaystackInitateRequest request)
         {
-            var parkingSpaceItem = await _context.ParkingSpaces.FirstOrDefaultAsync(x => x.SpaceId == bookingDto.SpaceId);
-            var driverItem = await _context.Drivers.FirstOrDefaultAsync(x => x.DriverId == bookingDto.DriverId);
+
             try
             {
-                var payment = new Payment
+                InitiateResponse response = new InitiateResponse();
+                TransactionInitializeRequest paystackRequest = new TransactionInitializeRequest
                 {
-                    BookingId = bookingDto.BookingId,
-                    Amount = parkingSpaceItem.Amount,
-                    Status = "Success",
-                    PaymentDate = DateTime.Now
+                    AmountInKobo = int.Parse(request.Amount) * 100,
+                    Email = request.Email,
+                    Currency = "NGN",
+                    CallbackUrl = _config["Paystack:CallBackUrl"]
                 };
-                _context.Payments.Add(payment);
-                await _context.SaveChangesAsync();
-                bool status = _notificationRepository.SendEmail(driverItem.Email, parkingSpaceItem.Location, bookingDto.StartTime, bookingDto.EndTime);
-                return payment;
+                _logger.LogInformation($"Request:: {JsonConvert.SerializeObject(paystackRequest)}");
+                TransactionInitializeResponse responseFromPaystack = _payStackApi.Transactions.Initialize(paystackRequest);
+                _logger.LogInformation($"Response from Paystack:: {JsonConvert.SerializeObject(responseFromPaystack)}");
+                if (responseFromPaystack.Status)
+                {
+                    Payment payment = new Payment
+                    {
+                        Amount = decimal.Parse(request.Amount),
+                        Email = request.Email,
+                        Currency = "NGN",
+                        Status = "pending",
+                        SlotOwner = request.SlotOwner,
+                        BookingId = request.BookingId,
+                        Reference = responseFromPaystack.Data.Reference
+                    };
+                    await _context.AddAsync(payment);
+                    await _context.SaveChangesAsync();
+                }
+                response = new InitiateResponse
+                {
+                    Status = responseFromPaystack.Status,
+                    Message = responseFromPaystack.Message,
+                    AuthorizationUrl = responseFromPaystack.Data.AuthorizationUrl,
+                    AccessCode = responseFromPaystack.Data.AccessCode,
+                    Reference = responseFromPaystack.Data.Reference
+                };
+                return response;
             }
             catch (Exception ex)
             {
-                throw ex;
+                _logger.LogError("An error occured in initialize payment", ex.Message);
+                var response = new InitiateResponse
+                {
+                    Status = false,
+                    Message = "An error occured initializing payment"
+                };
+                return response;
+            }
+        }
+        public async Task<PaystackVerifyResponse> VerifyPayment(string reference)
+        {
+            try
+            {
+                PaystackVerifyResponse response = new PaystackVerifyResponse();
+                _logger.LogInformation($"Reference:: {reference}");
+                TransactionVerifyResponse verifyResponse = _payStackApi.Transactions.Verify(reference);
+                if (verifyResponse.Status)
+                {
+                    _logger.LogInformation($"Response From Paystack:: {JsonConvert.SerializeObject(verifyResponse)}");
+
+                    var updateDatabase = new Payment
+                    {
+                        Status = "success",
+                        Message = verifyResponse.Message,
+                        PaymentMethod = verifyResponse.Data.Channel,
+                        Banks = verifyResponse.Data.Authorization.Bank,
+                        PaymentDate = verifyResponse.Data.TransactionDate
+                    };
+                    _context.Update(updateDatabase);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    _logger.LogInformation($"Response From Paystack:: {JsonConvert.SerializeObject(verifyResponse)}");
+                    var updateDatabase = new Payment
+                    {
+                        Status = "failed",
+                        Message = verifyResponse.Message,
+                        Reference = verifyResponse.Data.Reference,
+                        PaymentMethod = verifyResponse.Data.Channel,
+                        Banks = verifyResponse.Data.Authorization.Bank,
+                        PaymentDate = verifyResponse.Data.TransactionDate
+                    };
+                    _context.Update(updateDatabase);
+                    await _context.SaveChangesAsync();
+                }
+                response = new PaystackVerifyResponse
+                {
+                    Status = verifyResponse.Status,
+                    Message = verifyResponse.Message,
+                };
+                return response;
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("An error occured while verifying payment", ex.Message);
+                var response = new PaystackVerifyResponse
+                {
+                    Status = false,
+                    Message = "Error occured while verifying payment"
+                };
+                return response;
+            }
+
+        }
+        public async Task<List<Payment>> GetSlothOwnersPaymentHistory(PaymentHistoryQueryParameters request)
+        {
+            try
+            {
+                List<Payment> response = new List<Payment>();
+
+                if (!string.IsNullOrEmpty(request.SlotOwnersName))
+                {
+                    response = await _context.Payments
+                        .Where(x => x.SlotOwner == request.SlotOwnersName)
+                        .OrderBy(x => x.PaymentDate)
+                        .Skip((request.PageNumber - 1) * request.PageSize)
+                        .Take(request.PageSize)
+                        .ToListAsync();
+                }
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred getting payment details for {request.SlotOwnersName}", ex.Message);
+                return new List<Payment>();
             }
         }
     }

@@ -31,6 +31,7 @@ namespace SmartParkingSystem.Repository
             if (role.ToLower() == "owner")
                 return await _context.ParkingSpaces.Where(x=>x.Owner.Email == email).Include(y => y.Owner).DefaultIfEmpty().ToListAsync();
             return await _context.ParkingSpaces.Include(x => x.Owner).DefaultIfEmpty().ToListAsync();
+
         }
 
         public async Task<ParkingSpace> GetParkingSpace(int id)

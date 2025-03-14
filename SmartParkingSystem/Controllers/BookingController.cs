@@ -7,6 +7,7 @@ using SmartParkingSystem.Entities.DataTransferObjects;
 using SmartParkingSystem.Entities.Models;
 using SmartParkingSystem.JwtFeatures;
 
+
 namespace SmartParkingSystem.Controllers
 {
     [Route("api/[controller]")]
@@ -81,10 +82,12 @@ namespace SmartParkingSystem.Controllers
             try
             {
                 var Booking = await _BookingRepository.GetBooking(id);
+
                 if (Booking == null)
                 {
                     return NotFound();
                 }
+
                 await _BookingRepository.DeleteBooking(Booking);
 
                 return NoContent();
@@ -97,6 +100,7 @@ namespace SmartParkingSystem.Controllers
 
         [HttpPost("AddBooking")]
         public async Task<IActionResult> Post(BookingVM BookingDto)
+
         {
             try
             {

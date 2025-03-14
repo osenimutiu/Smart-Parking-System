@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartParkingSystem.Contracts;
 using SmartParkingSystem.Entities.DataTransferObjects;
+
 using SmartParkingSystem.Entities.Models;
 
 namespace SmartParkingSystem.Repository
@@ -68,5 +69,6 @@ namespace SmartParkingSystem.Repository
             };
             return bookingModel;
         }
+
     }
 }

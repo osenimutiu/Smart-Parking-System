@@ -40,7 +40,6 @@ namespace SmartParkingSystem.Repository
         {
             return await _context.ParkingOwners.FirstOrDefaultAsync(x => x.Email == email);
         }
-
         public async Task UpdateParkingOwner(ParkingOwner ParkingOwner)
         {
             var ParkingOwnerItem = await _context.ParkingOwners.FirstOrDefaultAsync(x => x.OwnerId == ParkingOwner.OwnerId);

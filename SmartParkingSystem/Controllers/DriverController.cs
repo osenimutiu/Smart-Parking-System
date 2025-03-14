@@ -7,6 +7,7 @@ using SmartParkingSystem.Entities.DataTransferObjects;
 using SmartParkingSystem.Entities.Models;
 using SmartParkingSystem.JwtFeatures;
 
+
 namespace SmartParkingSystem.Controllers
 {
     [Route("api/[controller]")]
@@ -66,6 +67,7 @@ namespace SmartParkingSystem.Controllers
             }
 
         }
+
         //[HttpGet("{id}")]
         [HttpGet("GetDriverById/{id}")]
         public async Task<IActionResult> Get(int id)
