@@ -95,7 +95,11 @@ namespace SmartParkingSystem.Controllers
 
                 await _ParkingSpaceRepository.DeleteParkingSpace(ParkingSpace);
 
-                return NoContent();
+                return Ok(new
+                {
+                    Status = true,
+                    Message = "Deleted Successfully"
+                });
             }
             catch (Exception ex)
             {
